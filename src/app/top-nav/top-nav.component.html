@@ -1,15 +1,15 @@
 <mat-toolbar color="primary" class="fix-nav">
-  <ng-container *ngIf="user">
+  <ng-container>
     <div class="nav-brand">
       <a href="#" routerLink="/">
-        Education System for {{user.role}}s
+        Система Баляна
       </a>
     </div>
     <span class="nav-spacer"></span>
     <ng-container>
       <span class="hidden-sm d-flex align-items-center mr-4">
         <mat-icon>account_circle</mat-icon>
-        {{user.firstName}} {{user.lastName}}
+        {{user?.firstName}} {{user?.lastName}}
       </span>
     </ng-container>
     <button mat-icon-button (click)="onLoggedout()">

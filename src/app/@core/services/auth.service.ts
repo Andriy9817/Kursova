@@ -10,8 +10,6 @@ interface IToken {
 @Injectable({providedIn: 'root'})
 export class AuthService {
 
-  api = 'user-service/user/';
-
   private user = new Subject<any>();
   user$ = this.user.asObservable();
 
@@ -40,17 +38,12 @@ export class AuthService {
   getCurrentUser(): Observable<any> {
     const user = JSON.parse(localStorage.getItem('user'));
     this.user.next(user);
-    return this.http.get<any>(this.api + 'find-by-principal').pipe(
+    return this.http.get<any>('user').pipe(
       tap(u => {
         this.user.next(u);
         localStorage.setItem('user', JSON.stringify(u));
       })
     );
-  }
-
-  registration(registrationDto: any): Promise<any> {
-    return this.http.post<number>(this.api + 'registration', JSON.stringify(registrationDto))
-      .pipe(catchError(err => throwError(err))).toPromise().catch(err => console.error(err));
   }
 
   isAuth$(): Observable<boolean> {

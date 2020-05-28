@@ -1,0 +1,14 @@
+<div [class.mb-4]="withMargin" class="d-flex align-content-start">
+  <h1 *ngIf="title" class="main-title mr-4 mb-0">{{title}}</h1>
+  <a *ngIf="isBack" [routerLink]="['../..']" class="main-button mr-4" color="primary" href="#" mat-raised-button>
+    <mat-icon>chevron_left</mat-icon>
+    Back
+  </a>
+  <a *ngFor="let link of links" [class.mr-4]="link.isAdd" [routerLinkActiveOptions]="{exact: true}"
+     class="main-button mr-2"
+     color="{{link.isAdd && 'primary'}}" href="#" mat-raised-button routerLink="{{link.path}}"
+     routerLinkActive="active">
+    <mat-icon *ngIf="link.icon">{{link.icon}}</mat-icon>
+    {{link.label}}
+  </a>
+</div>

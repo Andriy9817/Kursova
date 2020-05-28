@@ -7,13 +7,13 @@ import {TeacherFormComponent} from './teacher-form/teacher-form.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {TopNavComponent} from '@app/top-nav/top-nav.component';
 import {SideNavComponent} from '@app/side-nav/side-nav.component';
-import { StatisticComponent } from './statistic/statistic.component';
-import { TemplatesComponent } from './templates/templates.component';
-import { TemplateFormComponent } from './template-form/template-form.component';
-import { TeacherStatisticComponent } from './teacher-statistic/teacher-statistic.component';
+import {StatisticComponent} from './statistic/statistic.component';
+import {TemplatesComponent} from './templates/templates.component';
+import {TemplateFormComponent} from './template-form/template-form.component';
+import {TeacherStatisticComponent} from './teacher-statistic/teacher-statistic.component';
 import {LoginComponent} from '@app/login/login.component';
 import {MatIconModule} from '@angular/material/icon';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {DirectiveModule} from '@app/@directive/directive.module';
 import {MatInputModule} from '@angular/material/input';
@@ -25,6 +25,13 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {InterceptorService} from '@app/@core/services/interceptor.service';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {CommonModule} from '@angular/common';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {BreadcrumbsModule} from '@app/breadcrumbs/breadcrumbs.module';
+import {MatTableModule} from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
+import {AddWorkComponent} from './add-work/add-work.component';
 
 @NgModule({
   declarations: [
@@ -37,10 +44,12 @@ import {CommonModule} from '@angular/common';
     TemplatesComponent,
     TemplateFormComponent,
     TeacherStatisticComponent,
-    LoginComponent
+    LoginComponent,
+    AddWorkComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     MatSidenavModule,
     MatIconModule,
@@ -53,7 +62,13 @@ import {CommonModule} from '@angular/common';
     MatMenuModule,
     MatProgressBarModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    MatToolbarModule,
+    BreadcrumbsModule,
+    MatTableModule,
+    MatSelectModule,
+    MatRadioModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

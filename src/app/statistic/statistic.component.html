@@ -1,1 +1,62 @@
-<p>statistic works!</p>
+<section>
+  <app-breadcrumbs title="Статистика викладачів"></app-breadcrumbs>
+  <table [dataSource]="data" class="w-100" mat-table>
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell> ID</th>
+      <td *matCellDef="let row" mat-cell> {{row.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th *matHeaderCellDef mat-header-cell> ПІБ</th>
+      <td *matCellDef="let row" mat-cell>
+        {{row.name}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="type">
+      <th *matHeaderCellDef mat-header-cell> Тип</th>
+      <td *matCellDef="let row" mat-cell>
+        {{row.result}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="login">
+      <th *matHeaderCellDef mat-header-cell> Логін</th>
+      <td *matCellDef="let row" mat-cell>
+        {{row.result}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="password">
+      <th *matHeaderCellDef mat-header-cell> Пароль</th>
+      <td *matCellDef="let row" mat-cell>
+        {{row.result}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="hours">
+      <th *matHeaderCellDef mat-header-cell> Загальн к-сть годин</th>
+      <td *matCellDef="let row" mat-cell>
+        {{row.result}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="actions" stickyEnd>
+      <th *matHeaderCellDef mat-header-cell></th>
+      <td *matCellDef="let row" mat-cell>
+        <button [matMenuTriggerFor]="menu" mat-icon-button>
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>edit</mat-icon>
+            <span>Оновити</span>
+          </button>
+          <button mat-menu-item>
+            <span>Детальніше</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>delete</mat-icon>
+            <span>Видалити</span>
+          </button>
+        </mat-menu>
+      </td>
+    </ng-container>
+    <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  </table>
+</section>

@@ -9,8 +9,7 @@ import {AuthService} from '@app/@core/services/auth.service';
 })
 export class SideNavComponent implements OnInit {
 
-  type: string = this.auth.getUser().role.toLocaleLowerCase();
-  routes: any[] = routes[this.type];
+  routes: any[] = routes;
 
   constructor(private auth: AuthService) {
   }

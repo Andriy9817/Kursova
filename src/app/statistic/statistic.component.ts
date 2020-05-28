@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MatTableDataSource} from '@angular/material/table';
+import {HttpService} from '@app/@core/services/http.service';
 
 @Component({
   selector: 'app-statistic',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatisticComponent implements OnInit {
 
-  constructor() { }
+  data: MatTableDataSource<any>;
+  displayedColumns = ['id', 'name', 'type', 'login', 'password', 'hours', 'actions'];
+
+  constructor(private httpService: HttpService<any>) {
+  }
 
   ngOnInit(): void {
+    this.load();
+  }
+
+  load() {
+    // this.httpService.findAll('').subscribe(res => {
+    //   this.data = new MatTableDataSource<any>(res);
+    // });
   }
 
 }

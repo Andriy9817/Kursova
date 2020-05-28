@@ -9,7 +9,6 @@ import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 export class SideNavItemComponent implements OnInit {
 
   @Input() item;
-  @Input() type;
 
   constructor() {
   }

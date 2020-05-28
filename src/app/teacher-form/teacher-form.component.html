@@ -1,1 +1,37 @@
-<p>teacher-form works!</p>
+<section>
+  <app-breadcrumbs title="Додавання користувача"></app-breadcrumbs>
+  <form [formGroup]="form" (submit)="submit($event)">
+    <mat-radio-group>
+      <mat-radio-button class="example-radio-button" value="USER">
+        Викладач
+      </mat-radio-button>
+      <mat-radio-button class="example-radio-button" value="EDUCATION">
+        Навчальна частина
+      </mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field>
+      <mat-label>Тип:</mat-label>
+      <mat-select>
+        <mat-option value="1">Асистент</mat-option>
+        <mat-option value="1">Викладач</mat-option>
+        <mat-option value="1">Старший викладач</mat-option>
+        <mat-option value="1">Доцент</mat-option>
+        <mat-option value="1">Професор</mat-option>
+        <mat-option value="1">Зав кафедри</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>ПІБ</mat-label>
+      <input type="text" matInput>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Логін</mat-label>
+      <input type="text" matInput>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Пароль</mat-label>
+      <input type="text" matInput>
+    </mat-form-field>
+    <button [appPreLoader]="isSubmit" mat-raised-button color="primary">Зберегти</button>
+  </form>
+</section>

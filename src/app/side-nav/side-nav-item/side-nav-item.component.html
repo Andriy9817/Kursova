@@ -1,10 +1,10 @@
 <div class="item">
-  <a [routerLinkActive]="'active'" [routerLink]="['/', type, item.path]" mat-list-item>
+  <a [routerLinkActive]="'active'" [routerLink]="['/', item.path]" mat-list-item>
     <!--    <mat-icon>{{ item.data.icon }}</mat-icon>-->
     {{ item.data.text }}
   </a>
   <a *ngIf="item.data.subMenu && item.data.subMenu.length === 1" [routerLinkActive]="'active'"
-     [routerLink]="['/', type, item.path, item.data.subMenu[0].path]" class="more"
+     [routerLink]="['/', item.path, item.data.subMenu[0].path]" class="more"
      mat-icon-button>
     <mat-icon>{{item.data.subMenu[0].icon}}</mat-icon>
   </a>
@@ -15,7 +15,7 @@
 </div>
 <mat-menu #menu="matMenu" [hidden]="!item.data.submenu">
   <a *ngFor="let link of item.data.subMenu" [routerLinkActive]="'active'"
-     mat-menu-item routerLink="/{{type}}/{{item.path}}/{{link.path}}">
+     mat-menu-item routerLink="/{{item.path}}/{{link.path}}">
     <mat-icon *ngIf="link.icon">{{link.icon}}</mat-icon>
     {{link.text}}
   </a>

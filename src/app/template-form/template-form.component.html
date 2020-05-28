@@ -1,1 +1,27 @@
-<p>template-form works!</p>
+<section>
+  <app-breadcrumbs title="Додавання шаблону"></app-breadcrumbs>
+  <form [formGroup]="form" (submit)="submit($event)">
+    <mat-form-field>
+      <mat-label>Категорія:</mat-label>
+      <mat-select>
+        <mat-option value="DEFAULT">Звичайна</mat-option>
+        <mat-option value="PER_GROUP">Наукова діяльність по групі</mat-option>
+        <mat-option value="PER_STUDENT">Наукова діяльність по студенту</mat-option>
+        <mat-option value="PER_PAGE">Робота в університеті</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Назва</mat-label>
+      <input type="text" matInput>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Опис</mat-label>
+      <textarea type="text" matInput></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Коефіцієнт</mat-label>
+      <input type="number" matInput>
+    </mat-form-field>
+    <button [appPreLoader]="isSubmit" mat-raised-button color="primary">Зберегти</button>
+  </form>
+</section>
