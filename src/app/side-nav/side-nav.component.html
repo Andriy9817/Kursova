@@ -1,0 +1,5 @@
+<mat-nav-list>
+  <ng-container *ngFor="let item of routes; let i = index">
+    <app-side-nav-item [type]="type" [item]="item"></app-side-nav-item>
+  </ng-container>
+</mat-nav-list>

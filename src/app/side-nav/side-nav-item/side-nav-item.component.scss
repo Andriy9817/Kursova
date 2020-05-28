@@ -1,0 +1,43 @@
+@import "~styles/variables";
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .temp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: -1;
+    background: rgba(lightgreen, .4);
+  }
+}
+
+a:not(.more) {
+  transition: .3s border-left-width;
+  display: block;
+  padding-right: 40px;
+  text-decoration: none !important;
+  border-left: 4px solid transparent;
+
+  .mat-icon {
+    margin-right: 15px;
+    color: $primary-color;
+  }
+
+  &.active {
+    border-color: $primary-color;
+  }
+}
+
+.more {
+  position: absolute;
+  right: 0;
+
+  .mat-icon {
+    margin-right: 0 !important;
+  }
+}
