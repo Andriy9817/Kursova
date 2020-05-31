@@ -18,7 +18,7 @@ export class AuthService {
 
   login(email: string, password: string): Observable<any> {
     this.logout();
-    return this.http.post('auth-service/oauth/token', {}, {
+    return this.http.post('oauth/token', {}, {
       params: new HttpParams().set('username', email).set('password', password).set('grant_type', 'password')
     }).pipe(
       tap((val: IToken) => {

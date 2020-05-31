@@ -1,1 +1,47 @@
-<p>add-work works!</p>
+<section>
+  <app-breadcrumbs title="Додавання роботи"></app-breadcrumbs>
+<div>
+  <mat-label>Оберіть шаблон</mat-label>
+  <mat-select (selectionChange)="selectPattern($event)">
+    <mat-option *ngFor="let one of patterns" [value]="one">[{{translatedCategories[one.calculationType]}}] {{one.name}} ({{one.coefficient}})</mat-option>
+  </mat-select>
+
+</div>
+  <form [formGroup]="form" (submit)="submit($event)">
+    <mat-form-field>
+      <mat-label>Категорія:</mat-label>
+      <mat-select formControlName="calculationType" disabled>
+        <mat-option *ngFor="let one of categories" value="{{one}}">{{translatedCategories[one]}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Назва</mat-label>
+      <input formControlName="name" type="text" matInput disabled>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Опис</mat-label>
+      <textarea formControlName="description" type="text" matInput disabled></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Коефіцієнт</mat-label>
+      <input formControlName="coefficient" type="number" matInput disabled>
+    </mat-form-field>
+    <mat-form-field [hidden]="'PER_STUDENT'!==selectedCategory">
+      <mat-label>К-сть студентів</mat-label>
+      <input formControlName="studentsCount" type="number" matInput >
+    </mat-form-field>
+    <mat-form-field [hidden]="'PER_GROUP'!==selectedCategory">
+      <mat-label>К-сть груп</mat-label>
+      <input formControlName="groupsCount" type="number" matInput >
+    </mat-form-field>
+    <mat-form-field [hidden]="'PER_PAGE'!==selectedCategory">
+      <mat-label>К-сть сторінок</mat-label>
+      <input formControlName="pages" type="number" matInput >
+    </mat-form-field>
+    <mat-form-field [hidden]="'PER_PAGE'!==selectedCategory">
+      <mat-label>К-сть авторів</mat-label>
+      <input formControlName="authors" type="number" matInput >
+    </mat-form-field>
+    <button [appPreLoader]="isSubmit" mat-raised-button color="primary">Зберегти</button>
+  </form>
+</section>

@@ -15,6 +15,13 @@ export class SideNavComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.routes = this.routes.filter(v => v.data);
+    this.routes = routes.filter(v => v.data && v.data.roles.includes(this.auth.getUser().userRole));
+    this.auth.user$.subscribe(value => {
+      if(value) {
+        this.routes = routes.filter(v => v.data && v.data.roles.includes(value.userRole));
+      }else{
+        this.routes = [];
+      }
+    });
   }
 }

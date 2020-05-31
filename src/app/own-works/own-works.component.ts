@@ -3,11 +3,11 @@ import {MatTableDataSource} from '@angular/material/table';
 import {HttpService} from '@app/@core/services/http.service';
 
 @Component({
-  selector: 'app-templates',
-  templateUrl: './templates.component.html',
-  styleUrls: ['./templates.component.scss']
+  selector: 'app-own-works',
+  templateUrl: './own-works.component.html',
+  styleUrls: ['./own-works.component.scss']
 })
-export class TemplatesComponent implements OnInit {
+export class OwnWorksComponent implements OnInit {
 
   data: MatTableDataSource<any>;
   displayedColumns = ['id', 'type', 'name', 'description', 'coefficient'/*, 'actions'*/];
@@ -26,7 +26,7 @@ export class TemplatesComponent implements OnInit {
   }
 
   load() {
-    this.httpService.findAll('work/patterns').subscribe(res => {
+    this.httpService.findAll('work').subscribe(res => {
       this.data = new MatTableDataSource<any>(res);
     });
   }

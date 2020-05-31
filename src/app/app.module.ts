@@ -32,6 +32,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {AddWorkComponent} from './add-work/add-work.component';
+import {OwnWorksComponent} from "@app/own-works/own-works.component";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {AddWorkComponent} from './add-work/add-work.component';
     TemplateFormComponent,
     TeacherStatisticComponent,
     LoginComponent,
-    AddWorkComponent
+    AddWorkComponent,
+    OwnWorksComponent
   ],
   imports: [
     BrowserModule,

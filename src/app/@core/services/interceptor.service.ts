@@ -47,7 +47,7 @@ export class InterceptorService implements HttpInterceptor {
         return request.clone({
           url: url + request.url,
           setHeaders: {
-            Authorization: `Basic Y2xpZW50YXBwOjEyMzQ1Ng==`,
+            Authorization: `Basic YmFsaWFuX2t1cnNhY2g6YmFsaWFuX2t1cnNhY2hfUEFTU1dPUkQ=`,
             ...headers
           }
         });
